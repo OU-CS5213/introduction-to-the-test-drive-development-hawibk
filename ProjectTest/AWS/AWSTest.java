@@ -98,14 +98,22 @@ class AWSTest {
 	@Test
 	void testFillAndExpandWithNegative() {
 		int position = 1;
-		int numberOfTimes = -2;
+		
+		int numberOfTimes = Math.abs(-2);
+		//int numberOfTimes = -2;
 		
 		int[] org = originalAWS.getValues();
+		
 		int expectedValue = org[position];
+		
  		int first = org[0];
+ 		
 		int expected = originalAWS.getValues().length + numberOfTimes;
+		
 		originalAWS.fillAndExpand(position, numberOfTimes);
+		
 		int[] result = originalAWS.getValues();
+		
 		assertEquals(expected, result.length);
 		
 		int a = result[1];
